@@ -1,7 +1,12 @@
 <IfModule mod_rewrite.c>
     RewriteEngine on
-    options -indexes
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]
+    RewriteRule ^(.*)$ /index.php?uri=$1 [NC,L,QSA]
+    options all -indexes
+    ErrorDocument 403 /views/errors/403.php
 </IfModule>
+<files ".htaccess">
+    order allow,deny
+    deny from all
+</files> 

@@ -15,7 +15,7 @@ class Route
     {
         $httpVerb = (is_array($httpVerb)) ? array_map("strtolower", $httpVerb) : [strtolower(($httpVerb))];
         self::$routes[] = ["httpVerb" => $httpVerb,
-                           "uri" => $uri,"action" => $controller];
+                           "uri" => rtrim($uri,"/"),"action" => $controller];
         return new self;
     }
     public static function getRoutes():array

@@ -1,10 +1,13 @@
 <?php 
 namespace App\Controllers;
-class FrontController 
+
+use App\Controllers\Contracts\BaseController;
+
+class FrontController extends BaseController
 {
     public function index()
     {
         $data = ["title" => "front!"];
-        view(path: "pages.index" , data: $data); 
+        $this-> view(path: "pages.index" , data: $data); 
     }
 }

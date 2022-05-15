@@ -17,7 +17,7 @@ class Request
    {
      $this -> method = strtolower($_SERVER["REQUEST_METHOD"]);
      $this -> params = $_REQUEST;
-     $this -> uri = strtok($_SERVER["REQUEST_URI"], "?");
+     $this -> uri = rtrim(strtok($_SERVER["REQUEST_URI"], "?"),"/");
      $this -> userAgent = $_SERVER["HTTP_USER_AGENT"];
      $this -> protocol = $_SERVER["SERVER_PROTOCOL"];
      $this -> route = $_ENV["BASE_URL"]. $this -> uri;
